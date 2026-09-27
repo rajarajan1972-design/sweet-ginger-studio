@@ -453,14 +453,14 @@ export const GarmentCanvas: React.FC = () => {
 
 
       {/* Floating Canvas Legend Notice & Direct Garment Color Swatches */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 max-w-[95%] w-auto px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-neutral-900/90 backdrop-blur border border-neutral-700/80 text-[11px] text-neutral-200 flex flex-col md:flex-row items-center gap-2 sm:gap-3 shadow-xl z-30">
-        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 max-w-[96%] w-fit px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-neutral-900/95 backdrop-blur border border-neutral-700/80 text-[11px] text-neutral-200 flex flex-col md:flex-row items-center gap-2 sm:gap-3 shadow-xl z-30 pointer-events-auto">
+        <div className="flex items-center gap-2 min-w-0">
           <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
-          <span className="font-semibold text-white truncate max-w-[100px] sm:max-w-[180px]">{selectedProduct.name}</span>
+          <span className="font-semibold text-white truncate max-w-[110px] sm:max-w-[170px] md:max-w-[200px]">{selectedProduct.name}</span>
           <span className="text-neutral-400 font-mono text-[10px] shrink-0">({selectedColor.name})</span>
           {activeLayer && (
-            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
-              <span className="font-bold text-amber-300 hidden sm:inline">
+            <div className="flex items-center gap-1.5 shrink-0">
+              <span className="font-bold text-amber-300 hidden md:inline">
                 • {getActivePositionLabel()}
               </span>
               <button
@@ -480,7 +480,7 @@ export const GarmentCanvas: React.FC = () => {
         </div>
 
         {/* Quick Garment Color Swatches Bar */}
-        <div className="flex items-center gap-1.5 border-t md:border-t-0 md:border-l border-neutral-700 pt-1.5 md:pt-0 md:pl-3 overflow-x-auto max-w-full py-0.5 no-scrollbar shrink-0">
+        <div className="flex items-center gap-1.5 border-t md:border-t-0 md:border-l border-neutral-700/80 pt-1.5 md:pt-0 md:pl-3 md:pr-1 shrink-0">
           {selectedProduct.availableColors.map((col) => {
             const isSelected = selectedColor.id === col.id;
             return (
@@ -488,8 +488,8 @@ export const GarmentCanvas: React.FC = () => {
                 key={col.id}
                 onClick={() => setSelectedColor(col)}
                 title={col.name}
-                className={`w-5 h-5 rounded-full border transition-all shrink-0 ${
-                  isSelected ? 'ring-2 ring-amber-400 scale-125 border-white' : 'border-neutral-400 hover:scale-110 opacity-80 hover:opacity-100'
+                className={`w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full border transition-all shrink-0 ${
+                  isSelected ? 'ring-2 ring-amber-400 scale-110 border-white' : 'border-neutral-500/70 hover:scale-110 opacity-80 hover:opacity-100'
                 }`}
                 style={{ backgroundColor: col.hex }}
               />
